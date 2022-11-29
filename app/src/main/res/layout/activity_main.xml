@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngôn ngữ"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="#165153"
+            >
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:id="@+id/cAnh"
+
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:background="@drawable/nut"
+            >
+            <TextView
+                android:text="Anh"
+                android:textColor="#FFFFFF"
+                android:textSize="50sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cNga"
+
+            android:layout_marginLeft="20dp"
+
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:background="@drawable/nut"
+            >
+            <TextView
+                android:text="Nga"
+                android:textColor="#FFFFFF"
+                android:textSize="50sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+            </TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:id="@+id/nIta"
+
+            android:layout_marginLeft="20dp"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:background="@drawable/nut"
+            >
+            <TextView
+                android:text="Italy"
+                android:textColor="#FFFFFF"
+                android:textSize="50sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cMoco"
+
+            android:layout_marginLeft="20dp"
+
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:background="@drawable/nut"
+            >
+            <TextView
+                android:text="Mocco"
+                android:textColor="#FFFFFF"
+                android:textSize="50sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+            </TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:id="@+id/cHan"
+            android:layout_marginLeft="20dp"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:background="@drawable/nut"
+            >
+            <TextView
+                android:text="Hàn"
+                android:textColor="#FFFFFF"
+                android:textSize="40sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+            </TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/cTrung"
+            android:layout_marginLeft="20dp"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:background="@drawable/nut"
+            >
+            <TextView
+                android:text="Trung"
+                android:textColor="#FFFFFF"
+                android:textSize="40sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+            </TextView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

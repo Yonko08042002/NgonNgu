@@ -1,0 +1,128 @@
+package com.example.bon.ngonngu;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class DatabaseHelper1 extends SQLiteOpenHelper {
+
+     String TableName ="Nga";
+
+    public DatabaseHelper1(Context context){
+        super(context,"database_name",null,1);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        //Create table query
+        String sQuery ="create table "+ TableName
+                +"(id_312 INTEGER primary key autoincrement,ten312 TEXT,date312 TEXT)";
+        //Execute query
+        sqLiteDatabase.execSQL(sQuery);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        //Drop table query
+        String sQuery ="drop table if exists " + TableName;
+        //Execute query
+        sqLiteDatabase.execSQL(sQuery);
+        //Create new table
+        onCreate(sqLiteDatabase);
+    }
+
+    public void insert(String text,String date){
+        SQLiteDatabase database =getWritableDatabase();
+        ContentValues values =new ContentValues();
+        //add values
+        values.put("ten312",text);
+        values.put("date312",date);
+        //Insert values in database
+        database.insertWithOnConflict(TableName,null,
+                values,SQLiteDatabase.CONFLICT_REPLACE);
+        //Close database
+        database.close();
+    }
+
+    public void update(String id,String text){
+        //Initialize database
+        SQLiteDatabase database =getWritableDatabase();
+        //Update query
+        String sQuery ="update "+ TableName + " set ten312='" + text
+                +"'where id312 ='" + id +"'";
+        //Execute query
+        database.execSQL(sQuery);
+        //Close database
+        database.close();
+    }
+
+    public void delete(String id){
+        //Initialize database
+        SQLiteDatabase database =getWritableDatabase();
+        //Delete query
+        String sQuery ="detele from "+ TableName + " where id312='" + id +"'";
+        //Execute query
+        database.execSQL(sQuery);
+        //Close database
+        database.close();
+    }
+
+    public void truncate(){
+        //Ini
+        SQLiteDatabase database =getWritableDatabase();
+
+        String sQuery1 = "delete from " + TableName;
+
+        String sQuery2 ="delete from sqlite_sequence where name='"
+                + TableName +"'";
+
+        database.execSQL(sQuery1);
+        database.execSQL(sQuery2);
+        //
+        database.close();
+    }
+
+    public JSONArray getArray(){
+        //Ini
+        SQLiteDatabase database =getReadableDatabase();
+
+        JSONArray jsonArray = new JSONArray();
+
+        String sQuery ="select * from " + TableName;
+
+        Cursor cursor = database.rawQuery(sQuery,null);
+        //Check condition
+
+        if (cursor.moveToFirst()){
+            //When cursor move to firt item
+            do {
+                //Initialize json object
+                JSONObject object =new JSONObject();
+
+                try {
+                    //Put all values in object
+                        object.put("id312",cursor.getString(0));
+                        object.put("ten312",cursor.getString(1));
+                        object.put("date312",cursor.getString(2));
+                        //add values in json array
+                        jsonArray.put(object);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }while (cursor.moveToNext());
+            }
+            //Close cursor
+            cursor.close();
+            //
+            database.close();
+            return jsonArray;
+
+        }
+
+}
